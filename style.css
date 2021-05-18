@@ -1,0 +1,246 @@
+*,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+ 
+ html,
+ body {
+   height: 100%;
+ }
+ 
+ body {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #000;
+   font-family: 'Roboto', sans-serif;
+   background: linear-gradient(180deg, #000 0%, #62186B 100%) no-repeat;
+ }
+
+/**
+* Base Styles
+**/
+ 
+input[type="range"]{
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */ 
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  input[type=range]:focus {
+    outline: none; /* Removes the blue border.*/
+  }  
+
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+  
+    /* Hides the slider so custom styles can be added */
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+  }  
+
+/**
+* THUMB
+**/
+ /* Special styling for WebKit/Blink */
+ input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* box-shadow: none; */
+  border: 0px solid #13fc03;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  height: 42px;
+  width: 22px;
+  border-radius: 22px;
+  background: #13fc03;
+  cursor: pointer;
+  margin-top: -20px;
+  transform: rotate(90deg);
+}
+
+/* same stuff for firefox */
+input[type=range]::-moz-range-thumb{
+  -webkit-appearance: none;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    border: 0px solid #13fc03;
+    height: 42px;
+    width: 22px;
+    border-radius: 22px;
+    background: #13fc03;
+    cursor: pointer;
+    margin-top: -20px;
+    transform: rotate(90deg);
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #13fc03;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #13fc03;
+    cursor: pointer;
+  }
+
+input[type='range']::-ms-thumb {
+    box-shadow: none;
+    border: 0px solid #13fc03;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    height: 42px;
+    width: 22px;
+    border-radius: 22px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -20px;
+  }
+  
+input[type='range']::-ms-tooltip {
+    display: none;
+  }
+  
+/**
+* TRACK
+**/
+input[type=range]::-webkit-slider-runnable-track{
+    width: 0;
+    height: 3px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #ED0991;
+    border-radius: 1.3px;
+    border: 0.2px solid #13fc03;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track{
+    background: #13fc03;
+}
+
+/* same stuff for firefox */
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 1px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #ED0991;
+    border-radius: 1.3px;
+    border: 0.2px solid #13fc03;
+  }
+
+input[type=range]:focus::-moz-range-track {
+    background: #13fc03;
+}
+
+/*I.E*/
+input[type=range]::-ms-track{
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #13fc03;
+    border: 0.2px solid #13fc03;
+    border-radius:  1.3px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background:  1.3px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: 13fc03;
+    border: 0.2px solid 13fc03;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #ED0991;
+}
+
+/**
+* fader-app id 
+**/
+
+#fader-app{
+    margin: -.75em 0;
+    border: 1.5em solid transparent;
+    padding: 0;
+    width: 600px;
+    height: 0;
+    background: repeating-linear-gradient(90deg,#13fc03,#13fc03 .0625em,transparent .0625em,transparent 0.5em) 50% .4375em no-repeat border-box,
+      repeating-linear-gradient(90deg,#13fc03,#13fc03 .0625em,transparent .0625em,transparent 0.3em) 50% 2.5em no-repeat border-box;
+    background-size: 550px .625em,
+      550px .625em,
+      100% 2.25em;
+    font-size: 1em;
+    cursor: pointer;
+    transform: rotate(90deg);
+    margin-top: 29px;
+}
+
+/**
+* Input number to fader
+**/
+
+#inputToFader {
+  position: absolute;
+  transform-origin: center center;
+  display: block;
+  width: 130px;
+  height: 130px;
+  background: transparent;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+  font-weight: bold;
+  box-sizing: border-box;
+  border: 2px solid #13fc03;
+  margin-top: -700px;
+  margin-left: 0px;
+  color: #13fc03;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 36px;
+
+}
+
+/* Chrome. Unload input=number appereance */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox. Unload input=number appereance */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media only screen and (max-width:1400px) { 
+  #fader-app { 
+    width: 350px;
+    background: repeating-linear-gradient(90deg,#13fc03,#13fc03 .0625em,transparent .0625em,transparent 0.5em) 50% .4375em no-repeat border-box,
+      repeating-linear-gradient(90deg,#13fc03,#13fc03 .0625em,transparent .0625em,transparent 0.3em) 50% 2.5em no-repeat border-box;
+    background-size: 300px .625em,
+      300px .625em,
+      100% 2.25em;
+   }
+
+   #inputToFader{
+    margin-top: -460px;
+   }
+}
