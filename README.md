@@ -1,6 +1,6 @@
 # JavaScript Simple Fader-Mixer
 
-![app screenshot]()
+![app screenshot](https://github.com/artedsolis/mix-fader/blob/main/screenshot.png)
 
 [Click on this link to play with it](https://artedsolis.github.io/mix-fader/)
 
